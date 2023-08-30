@@ -1,0 +1,600 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>final_report</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='final-report'><span>Final Report</span></h1><p><span>August 25, 2023 · Saail Narvekar</span></p><h1 id='final-report-for-google-summer-of-code-2023'><span>Final Report for Google Summer of Code 2023</span></h1><p><span>Project: Support basic SensorThings API (STA) for istSOS</span>
+<span> Organization: Osgeo (Open Source Geospatial Foundation)</span></p><h2 id='abstract'><span>Abstract</span></h2><p><span>During the Google Summer of Code 2023, I worked on the project “istsos-miu”</span><a href='https://github.com/istSOS/istsos-miu'><span>1</span></a><span> part of the OSGeo</span><a href='https://www.osgeo.org/'><span>2</span></a><span> Foundation.The goal of my project is to add OGC standard of Sensor Things API(STA)  to istSOS project. The OGC SensorThings API provides an open,  geospatial-enabled and unified way to interconnect the Internet of  Things (IoT) devices, data, and applications over the Web. The project  aims to extend interoperability and implement some of the basic APIs  from STA that could be adopted in a new revised version of istSOS. FastAPI can be used for the request and response of the istSOS STA  services. As PostgreSQL is used as the primary data store or data . PostgREST is a standalone web server that could be used to turn the  PostgreSQL database of STA data directly into a RESTful API.  </span></p><h2 id='the-state-of-the-art-before-gsoc'><span>The state of the art before GSoC</span></h2><p><span>Prior to GSoC, an existing implementation of the Sensor Things API  standard was available in Java. However, the goal was to develop a new  implementation using Python, allowing seamless integration with the  istsos project. As a result, the project was initiated from the ground  up, enabling a fresh Python-based implementation. </span></p><h2 id='what-i-have-done'><span>What I have done</span></h2><p><span>During the Google Summer of Code 2023, my main aim was to elevate the capabilities of the istsos project by aligning it with the principles outlined in the Sensor Things API standard </span><a href='https://www.ogc.org/standard/sensorthings/'><span>3</span></a><span>. I effectively accomplished this objective by actively engaging with different facets of the project. These contributions were pivotal in its advancement and enhancing overall user experience. My contributions can be divided into the following categories:</span></p><h3 id='updating-the-database-schema-as-per-sta-ogc-standards'><span>Updating the database schema as per STA OGC standards</span></h3><p><span>The created database schema was not fully following STA standards and need to be updated. The entity relation was updated as per the STA OGC standard documentation. Schema was updated to add more data to the database entity table. Observation entity table required lot of brain storming. Vaious possible table design were thought and tested for the implementation.</span></p><h3 id='testing-the-feasibility-of-fastapi-and-postgrest'><span>Testing the feasibility of FastAPI and postgREST</span></h3><p><span>In the testing process, the feasibility of utilizing FastAPI for efficient web service handling and postgREST for converting a PostgreSQL database into a RESTful API was examined. FastAPI serves as the bridge for sending requests to the postgREST  server, which then interacts with the PostgreSQL database to retrieve the requested information. </span></p><h3 id='creating-synthetic-data-for-the-entity-tables'><span>Creating Synthetic Data for the entity tables</span></h3><p><span>To effectively test the newly created STA parser, a substantial amount  of test data was necessary. To achieve this, mock datasets were  generated based on user-configured settings using python script. This synthetic data  was generated based on the specified count in the user  configuration. The data was then seamlessly incorporated into the  database through an automated process.</span></p><h3 id='testing-sta-rest-apis-as-per-ogc-standard'><span>Testing STA REST APIs as per OGC standard</span></h3><p><span>A comprehensive testing of the STA REST APIs was performed, covering  data retrieval, insertion, updates, and deletions across STA entities.  The testing spanned more than 100 queries, encompassing complex queries  outlined in the STA OGC documentation. For future testing, the  configuration JSON file from the Hoppscotch API testing tool was exported.</span></p><p>&nbsp;</p><h2 id='the-current-state-of-the-project'><span>The current state of the project</span></h2><p><span>The objective of implementing the Sensor Things API into the istsos  project has been successfully realized. The project has now reached a  stage where users can effectively utilize it to engage with the istsos  server through the Sensor Things API. While the project is currently  under development, it will continue to progress and evolve in the times ahead.</span></p><p><img src="assets/img/sta_architecture.png" referrerpolicy="no-referrer" alt="Architecture"></p><h2 id='what-is-left-to-do'><span>What is left to do</span></h2><p><span>While substantial strides have been taken during the Google Summer of Code 2023, some features of the official Sensor Things API standard couldn&#39;t be fully integrated within the allotted timeframe. These features encompass:</span></p><h3 id='mqtt-extension'><span>MQTT Extension:</span></h3><p><span>Implementing the MQTT extension for seamless communication between IoT devices and applications.</span></p><h3 id='data-array-extension'><span>Data Array Extension:</span></h3><p><span>Incorporating support for data arrays to enable efficient storage and retrieval of multiple data points.</span></p><h3 id='multidatastream-extension'><span>MultiDatastream Extension:</span></h3><p><span>Introducing the MultiDatastream extension to accommodate scenarios involving multiple data streams.</span></p><h3 id='batch-request-requirement'><span>Batch Request Requirement:</span></h3><p><span>Developing the capability to handle batch requests efficiently.</span></p><h3 id='historical-location-auto-creation-requirement'><span>Historical Location Auto-Creation Requirement:</span></h3><p><span>Addressing the auto-creation of historical location information, ensuring accurate historical data representation.</span></p><h3 id='pagination-requirement'><span>Pagination Requirement:</span></h3><p><span>Implementing data pagination to manage and present large datasets effectively.</span></p><h3 id='built-in-query-functions-requirement'><span>Built-in Query Functions Requirement:</span></h3><p><span>Adding built-in query functions to simplify and enhance data querying capabilities.</span></p><h3 id='data-count-requirement'><span>Data Count Requirement:</span></h3><p><span>Incorporating data count functionality for accurate monitoring of data volume.</span></p><h3 id='status-code-requirement'><span>Status Code Requirement:</span></h3><p><span>Integrating support for querying data using status codes and expanding data analysis options were aims within the project scope, yet complete realization wasn&#39;t feasible within the allotted timeframe. These aspects present prospects for future advancement and growth of the &quot;istsos-miu&quot; project, offering an avenue to enhance functionalities and align more comprehensively with the expansive Sensor Things API standard.</span></p><p><span>While these features are yet to be fully realized, the current contributions have established a robust groundwork, positioning them for potential integration and development in the project&#39;s future endeavors.</span></p><h3 id='testing-of-the-above-features'><span>Testing of the above features:</span></h3><p><span>Testing the  APIs of the above features once implemented.</span></p><h2 id='what-code-has-been-merged'><span>What code has been merged</span></h2><p><span>The code that I have written during the Google Summer of Code 2023 has been merged into the </span><code>traveltime</code><span> branch of the istsos project. The code can be found in the following repository:</span></p><ul><li><p><a href='https://github.com/istSOS/istsos-miu/tree/traveltime' target='_blank' class='url'>https://github.com/istSOS/istsos-miu/tree/traveltime</a></p><p><span>The list of pull requests that have been merged can be found here:</span></p></li><li><p><a href='https://github.com/istSOS/istsos-miu/pulls?q=is%3Apr+is%3Aclosed+author%3ASaailN' target='_blank' class='url'>https://github.com/istSOS/istsos-miu/pulls?q=is%3Apr+is%3Aclosed+author%3ASaailN</a></p></li></ul><h2 id='what-i-have-learned'><span>What I have learned</span></h2><p><span>Throughout the course of the Google Summer of Code 2023, I have  gained a wealth of knowledge and experience that has significantly  enriched my skills and understanding of software development,  programming languages, and open-source collaboration. The journey of  contributing to the “istsos-miu” project and aligning it with the Sensor Things API standard has taught me invaluable lessons in various areas:</span></p><h3 id='relational-database'><span>Relational Database </span></h3><p><span>My engagement with the Sensor Things API (STA) has deepened my  understanding of PostgreSQL as a powerful relational database for  managing geospatial and time-series data. This experience has revealed  the nuances of database schema design, indexing, and query optimization  specific to spatial and temporal data. I&#39;ve learned how to leverage PostgreSQL&#39;s spatial capabilities  to store, query, and analyze geospatial information efficiently. This  journey has underscored the importance of selecting appropriate data  types, indexing strategies, and SQL constructs to ensure optimal  performance when working with complex geospatial datasets within the  context of STA.</span></p><h3 id='restful-api'><span>RESTful API </span></h3><p><span>Contributing to the &quot;istsos-miu&quot; project provided me with a deep dive  into the intricacies of RESTful architecture and API design. This  hands-on experience enabled me to grasp the principles of creating  interfaces that adhere to industry best practices for web-based  functionality exposure. As a valuable learning experience, I gained insights into creating an  API service that seamlessly integrates with the istsos server,  effectively utilizing the capabilities of the Sensor Things API.</span></p><h3 id='collaboration-and-open-source-development'><span>Collaboration and Open Source Development</span></h3><p><span>Engaging in an open-source project under the OSGeo Foundation has  provided a rewarding experience in collaborative software development.  Through activities like code reviews, discussions, and interactions with mentors and fellow contributors, I have acquired valuable skills in  effective remote collaboration. The feedback received during the review  process has significantly enhanced the quality of my code and improved  my ability to communicate complex technical ideas clearly.</span></p><h3 id='project-management-and-time-management'><span>Project Management and Time Management</span></h3><p><span>Participating in the Google Summer of Code demanded adept project management and time management capabilities. Juggling project objectives, meeting crucial milestones, and navigating unforeseen obstacles within the stipulated period provided valuable lessons in task prioritization and efficient effort management.</span></p><h3 id='technical-research-and-adaptation'><span>Technical Research and Adaptation</span></h3><p><span>Implementing the Sensor Things API standard required an in-depth grasp  of its technical specifications and underlying principles. This entailed extensive research, learning, and adaptation of concepts related to  databases, RESTful APIs, and data querying. Delving into unfamiliar  realms and swiftly mastering novel concepts has enhanced my adaptability and resourcefulness as a developer.</span></p><h2 id='conclusion'><span>Conclusion</span></h2><p><span>As the Google Summer of Code 2023 concludes, I&#39;m immensely grateful for the opportunities provided by Google and the OSGeo organization. My involvement in the &quot;istsos-miu&quot; project, aligned with the Sensor Things API, has been profoundly transformative. The project&#39;s scope has naturally expanded beyond its initial proposal, demonstrating its potential for a larger impact. Despite this, we&#39;ve achieved a remarkable level of functionality that aligns with the core goal of implementing the Sensor Things API within the istsos project. This empowers users to seamlessly interact with the istsos server through a standardized interface, streamlining IoT data management.</span></p><p><span>My heartfelt appreciation extends to Google, OSGeo, and especially Massimiliano and Daniele, whose guidance and support have been instrumental. Their mentorship has been pivotal in surmounting challenges and pushing the project to new heights. This journey has considerably enhanced my skills, particularly in areas like language design, API development, and collaboration within the open-source community. Looking forward, I&#39;m enthusiastic about continuing my contributions to open-source projects and applying the lessons learned here to embrace fresh opportunities.</span></p><h2 id='other-useful-links'><span>Other useful links</span></h2><ul><li><p><a href='https://summerofcode.withgoogle.com/programs/2023/projects/TmvBTqrE'><span>Project Proposal</span></a></p></li><li><p><a href='https://github.com/istSOS/istsos-miu'><span>Project Repository</span></a></p></li><li><p><a href='https://github.com/istSOS/istsos-miu/wiki/GSoC-2023-Implement-SensorThings-API-standard-in-istSOS-Saail-Narvekar'><span>Project Wiki</span></a></p></li><li><p><a href='https://github.com/istSOS/istsos-miu/wiki/GSoC-2023-Implement-SensorThings-API-standard-in-istSOS-Saail-Narvekar'><span>OSGeo GSoC 2023</span></a></p></li></ul><hr /><ol start='' ><li><p><a href='https://github.com/istSOS/istsos-miu' target='_blank' class='url'>https://github.com/istSOS/istsos-miu</a><span> </span></p></li><li><p><a href='https://www.osgeo.org/' target='_blank' class='url'>https://www.osgeo.org/</a></p></li><li><p><a href='https://www.ogc.org/standard/sensorthings/' target='_blank' class='url'>https://www.ogc.org/standard/sensorthings/</a></p><p>&nbsp;</p></li></ol></div></div>
+</body>
+</html>
