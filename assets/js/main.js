@@ -59,3 +59,9 @@ sr.reveal('.contact__input',{interval: 200});
 
 
 
+// JavaScript to toggle skill dropdowns and icon rotation
+document.querySelectorAll('.skill-button').forEach(button => {
+    button.addEventListener('click', function () {
+        this.parentNode.classList.toggle('active');
+    });
+});

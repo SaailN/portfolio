@@ -249,7 +249,7 @@ img{
 }
 
 /* ===== SKILLS =====*/
-.skills__container{
+/* .skills__container{
   row-gap: 2rem;
   text-align: center;
 }
@@ -302,7 +302,71 @@ img{
 }
 .skills__img{
   border-radius: .5rem;
+} */
+
+/* Skills Section Styles */
+/* Skills Section Styles */
+/* Skills Section Styles */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-gap: 20px; /* Space between items */
+  max-width: 800px;
+  margin: 0 auto; /* Center grid on page */
+  text-align: center;
 }
+
+.skill {
+  position: relative;
+}
+
+.skill-button {
+  background-color: #0066cc; /* Button color */
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-button:hover {
+  background-color: #0052a3; /* Darker shade on hover */
+}
+
+/* Icon Style */
+.dropdown-icon {
+  margin-left: 10px;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate icon when dropdown is active */
+.skill.active .dropdown-icon {
+  transform: rotate(180deg); /* Upside-down arrow */
+}
+
+.skill-dropdown {
+  display: none; /* Hide by default */
+  padding: 10px;
+  font-size: 15px;
+  color: #333;
+  text-align: left; /* Align text inside dropdown */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+}
+
+/* Show the dropdown when clicked */
+.skill.active .skill-dropdown {
+  display: block;
+}
+
+
 
 /* ===== WORK =====*/
 .work__container{
