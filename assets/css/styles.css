@@ -448,3 +448,132 @@ img{
     right: 10%;
   }
 }
+
+
+/* ############### */
+
+/* Center Title */
+/* Center Title */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Center the Timeline Section */
+.timeline {
+  display: flex;
+  justify-content: center;
+}
+
+/* Center the Timeline Container */
+.timeline__container {
+  position: relative;
+  width: 60%; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centered Vertical Line */
+.timeline__container::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: #333;
+  z-index: 0; /* Ensures it stays behind the circles */
+}
+
+/* Alternating Timeline Events */
+.timeline__event {
+  margin-bottom: 2rem;
+  position: relative;
+  width: 45%;
+}
+
+.timeline__event--left {
+  align-self: flex-end;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.timeline__event--right {
+  align-self: flex-start;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+/* Date Styling */
+.timeline__date {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* Content Box Styling */
+.timeline__content {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1; /* Ensures it stays on top of the timeline line */
+}
+
+/* Circle for Each Event on the Line */
+.timeline__event::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background-color: #333; /* Color of the circle */
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0); /* Center the circle horizontally over the line */
+  top: 0; /* Position at the top of the event */
+  z-index: 1; /* Ensures the circle sits above the line */
+}
+
+
+
+/* Achievements Section Styles */
+/* Achievements Section Styles */
+
+
+
+
+/* Research Section Styles */
+/* Research Section Styles */
+.research {
+  padding: 20px; /* Add padding for spacing */
+}
+
+.research-content {
+  border: 2px solid #ccc; /* Add a border for the box */
+  border-radius: 8px; /* Rounded corners for the box */
+  padding: 15px; /* Padding inside the box */
+  margin: 10px 0; /* Margin above and below the box */
+  background-color: #f9f9f9; /* Light background color for contrast */
+}
+
+.research-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+.publication {
+  margin-bottom: var(--mb-1); /* Spacing between publications */
+}
+
+/* Optional: Style for links */
+.publication a {
+  color: #0066cc; /* Change link color */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.publication a:hover {
+  text-decoration: underline; /* Underline on hover for better UX */
+}
