@@ -248,6 +248,8 @@ img{
   border-radius: .5rem;
 }
 
+
+
 /* ===== SKILLS =====*/
 /* .skills__container{
   row-gap: 2rem;
@@ -369,7 +371,7 @@ img{
 
 
 /* ===== WORK =====*/
-.work__container{
+/* .work__container{
   row-gap: 2rem;
 }
 .work__img{
@@ -383,7 +385,83 @@ img{
 }
 .work__img img:hover{
   transform: scale(1.1);
+} */
+
+
+/* General styling for project container */
+.work__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
+
+/* Each project item */
+.work__item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Project image */
+.work__content img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Overlay content */
+.work__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Overlay text and video link */
+.work__overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.work__overlay p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.work__overlay a {
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 1rem;
+  border: 2px solid #4caf50;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.work__overlay a:hover {
+  background: #4caf50;
+  color: #fff;
+}
+
+/* Hover Effects */
+.work__item:hover img {
+  transform: scale(1.1);
+}
+
+.work__item:hover .work__overlay {
+  opacity: 1;
+}
+
 
 /* ===== CONTACT =====*/
 .contact__input{
@@ -610,9 +688,16 @@ img{
 
 
 /* Research Section Styles */
-/* Research Section Styles */
+/* ===== RESEARCH ===== */
 .research {
-  padding: 20px; /* Add padding for spacing */
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  margin-left: var(--mb-2); /* Matches left margin for the grid layout */
+  margin-right: var(--mb-2); /* Matches right margin for the grid layout */
+  width: 100%; /* Ensure it takes up full width, respecting grid layout */
+  max-width: 1024px; /* Limit width similar to the grid system */
+  margin-left: auto;
+  margin-right: auto; /* Center-align it */
 }
 
 .research-content {
@@ -640,4 +725,49 @@ img{
 
 .publication a:hover {
   text-decoration: underline; /* Underline on hover for better UX */
+}
+
+
+
+
+/* Section Styling */
+.interests {
+  padding: 40px;
+  text-align: center;
+}
+
+
+
+/* Slider Styling */
+.interests-slider {
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  max-width: 1000px; /* Set a max width */
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 12); /* Width based on image width and number of images */
+  animation: scrollLeft 30s linear infinite;
+}
+
+.interests-slider img {
+  width: 250px; /* Fixed width for each image */
+  margin: 0 10px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for scrolling */
+@keyframes scrollLeft {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-50%);
+  }
 }
